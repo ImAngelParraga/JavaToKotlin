@@ -2,15 +2,13 @@ import org.junit.jupiter.api.Test
 import java.util.UUID
 import kotlin.test.assertEquals
 
-
-@Suppress("UnusedVariable", "unused")
 class SyntaxKotlinTest {
 
     @Test
     fun simpleTest() {
-        data class Person(val name: String)
+        data class Person(val name: String, val age: Int)
         // No new para instanciar clase
-        val person = Person("John")
+        val person = Person("John", 25)
 
         // var es mutable
         var name = person.name
@@ -24,6 +22,11 @@ class SyntaxKotlinTest {
 
         // Asignaciones con control de flujo. Vale para returns.
         val ifVariable = if (person.name == "John") "yes" else "no"
+
+        // Class destructure
+        val (personName, personAge) = person
+        val pair = "Angel" to 30 // Lo mismo que Pair("Angel, 30)
+        val (pairName, pairAge) = pair
     }
 
     @Test
