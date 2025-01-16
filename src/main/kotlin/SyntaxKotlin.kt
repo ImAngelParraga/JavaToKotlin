@@ -48,6 +48,7 @@ class SyntaxKotlin {
         // "it" representa el elemento
         val newTimes2 = mutableList.map { it * 2 }
 
+        // Hay negación sin "!"
         mutableList.isEmpty()
         mutableList.isNotEmpty()
     }
