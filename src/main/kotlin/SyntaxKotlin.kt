@@ -1,33 +1,39 @@
-import org.junit.jupiter.api.Test
+package angel.parraga
+
 import java.util.UUID
-import kotlin.test.assertEquals
 
-
-@Suppress("UnusedVariable", "unused")
-class SyntaxKotlinTest {
-
-    @Test
+class SyntaxKotlin {
     fun simpleTest() {
-        data class Person(val name: String)
-        // No new para instanciar clase
-        val person = Person("John")
-
         // var es mutable
-        var name = person.name
-        name = "Ángel"
+        var mutable = "Esto es mutable"
+        mutable = "String mutado"
 
         // val es inmutable
+        val inmutable = mutable
+
+        // Declaración data class. No hace falta {} si no hay más código
+        data class Person(val name: String, val age: Int)
+
+        // No new para instanciar clase
+        val person = Person("John", 30)
+
+        // Data class copy
+        val personCopy = person.copy("Ángel")
+
+        // Desestructuración de clases
+        val (name, age) = personCopy
+
         // String interpolation
         val message = "Hello, $name! You've ${20 + 10} years old"
 
+        // Print más sencillo
         println(message)
 
         // Asignaciones con control de flujo. Vale para returns.
         val ifVariable = if (person.name == "John") "yes" else "no"
     }
 
-    @Test
-    fun collectionTest() {
+    fun collections() {
         // Lista inmutable. No tiene métodos para modificar la lista
         val inmutableList = listOf(1, 2, 3, 4, 5)
 
@@ -41,6 +47,9 @@ class SyntaxKotlinTest {
 
         // "it" representa el elemento
         val newTimes2 = mutableList.map { it * 2 }
+
+        mutableList.isEmpty()
+        mutableList.isNotEmpty()
     }
 
     // Funciones compactas con =
@@ -59,12 +68,8 @@ class SyntaxKotlinTest {
         return this.groupingBy { it }.eachCount().maxBy { it.value }.key
     }
 
-    @Test
-    fun mostCommonElementTest() {
+    fun mostCommonElement() {
         val list = listOf(1, 2, 3, 4, 5, 5)
-
-        assertEquals(5, list.mostCommonElement())
+        val mostCommonElement = list.mostCommonElement()
     }
-
-
 }

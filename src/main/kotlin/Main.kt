@@ -1,6 +1,12 @@
 package angel.parraga
 
+import SyntaxJava
+
 fun main() {
-    println("Hello World!")
-    val a = "a"
+    val javaSyntax = SyntaxJava()
+    javaSyntax.simpleTest()
+    javaSyntax.collections()
+
+    val kotlinSyntax = SyntaxKotlin()
+    kotlinSyntax.simpleTest()
 }
