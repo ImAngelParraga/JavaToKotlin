@@ -73,4 +73,6 @@ class SyntaxKotlin {
         val list = listOf(1, 2, 3, 4, 5, 5)
         val mostCommonElement = list.mostCommonElement()
     }
+
+    // Lazy var
 }
