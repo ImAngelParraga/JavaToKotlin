@@ -1,6 +1,8 @@
 package angel.parraga
 
+import angel.parraga.SyntaxKotlin.User
 import java.util.UUID
+import kotlin.properties.Delegates
 
 class SyntaxKotlin {
     fun simpleTest() {
@@ -74,5 +76,21 @@ class SyntaxKotlin {
         val mostCommonElement = list.mostCommonElement()
     }
 
-    // Lazy var
+    // Delegated properties
+
+    // Lazy. Se inicializa la primera vez que se hace el get. Después el valor guardado.
+    val lazyValue: String by lazy {
+        println("computed!")
+        "Hello"
+    }
+
+    // Observable. Cuando se modifica el valor, se ejecuta el código.
+    class User {
+        var name: String by Delegates.observable("<no name>") {
+                _, old, new ->
+            println("$old -> $new")
+        }
+    }
+
+
 }
