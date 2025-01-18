@@ -57,6 +57,10 @@ class ScopeFunctions {
         numbers
             .also { println("The list elements before adding new one: $it") }
             .add("four")
+
+        var a = 1
+        var b = 2
+        a = b.also { b = a }
     }
 
 
