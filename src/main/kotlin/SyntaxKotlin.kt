@@ -1,6 +1,5 @@
 package angel.parraga
 
-import angel.parraga.SyntaxKotlin.User
 import java.util.UUID
 import kotlin.properties.Delegates
 
