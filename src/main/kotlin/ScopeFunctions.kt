@@ -115,6 +115,10 @@ class ScopeFunctions {
         println(adam)
     }
 
+    fun arrayOfMinusOnes(size: Int): IntArray {
+        return IntArray(size).apply { fill(-1) }
+    }
+
     /* TakeIf, TakeUnless
     No son scope functions pero se suelen usar junto a ellas. TakeIf devuelve el objeto sobre el que se usa si se
     satisface el predicado, devuelve null en caso contrario. TakeUnless hace lo contrario.
