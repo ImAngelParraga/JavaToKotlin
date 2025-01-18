@@ -22,11 +22,19 @@ class ScopeFunctions {
     fun scopeLet() {
         val str: String? = "Hello"
         //processNonNullString(str)     // compilation error: str can be null
-        val length = str?.let {
+        val lengthLet = str?.let {
             println("let() called on $it")
             processNonNullString(it)      // OK: 'it' is not null inside '?.let { }'
             it.length
         }
+
+        var lengthNoLet: Int? = null
+        if (str != null) {
+            println("let() called on $str")
+            processNonNullString(str)
+            lengthNoLet = str.length
+        }
+
 
         // Without let
         val numbers = mutableListOf("one", "two", "three", "four", "five")
